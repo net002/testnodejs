@@ -301,6 +301,53 @@ app.get('/ViewtasksByiD/:id', async (req, res) => {
 
 
 
+app.post('/addDataCalendar', async (req, res) => {
+  data = req.body;
+  console.log(data);
+  inFo = await db.fullcalendar.create({
+    title: data.title,
+    start: data.start,
+    end: data.end,
+    allDay: data.allDay,
+  });
+});
+/////////////////  Calendar ///////////////////////////
+app.get('/getDataCalendar', async (req, res) => {
+  inFo = await db.fullcalendar.findAll({ attributes: ['ID', 'title', 'start', 'end', 'allDay'] ,where:{visible : true}}).then((results) => {
+    res.json(results);
+  });
+});
+
+app.put('/updateDataCalendar', async (req, res) => {
+  data = req.body;
+  inFo = await db.fullcalendar.update({
+    start: data.newdata.start,
+    end: data.newdata.end
+  },
+    {
+      where: {
+        ID: data.olddata.extendedProps.ID
+      }
+    }).then((results) => {
+      res.json(results);
+    });
+});
+
+app.put('/deleteDataCalendar', async (req, res) => {
+  data = req.body;
+  inFo = await db.fullcalendar.update({
+    visible : false
+  },
+    {
+      where: {
+        ID: data.extendedProps.ID
+      }
+    }).then((results) => {
+      res.json(results);
+    });
+});
+
+
 db.sequelize.sync().then(() => {
   app.listen(5000, () => {
     console.log('Server is running on port 500...');

@@ -63,7 +63,7 @@
           <v-list-item-title> view</v-list-item-title>
         </v-list-item>
       </v-list-group>
-      <v-list-item router-link :to="'/fullcalendar'">
+      <v-list-item router-link :to="'/FullCalendarComponents'">
         <v-list-item-icon>
           <v-icon>mdi-calendar</v-icon>
         </v-list-item-icon>

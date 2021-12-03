@@ -7,7 +7,7 @@ import createTasksComponnet from '../components/createTasksComponnet.vue'
 import createUsersComponnet from '../components/createUsersComponnet.vue'
 import EditTasksComponnet from '../components/editTasksComponnet.vue'
 import EditUsersComponnet from '../components/editUsersComponnet.vue'
-import fullcalendar from '../components/fullCalendar.vue'
+import FullCalendarComponents from '../components/FullCalendarComponents.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -47,9 +47,9 @@ const routes = [
     component: EditUsersComponnet
   },
   {
-    path: '/fullcalendar',
-    name: 'fullcalendar',
-    component: fullcalendar
+    path: '/FullCalendarComponents',
+    name: 'FullCalendarComponents',
+    component: FullCalendarComponents
   },
   {
     path: '/about/:id',
